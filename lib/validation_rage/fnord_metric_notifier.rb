@@ -1,3 +1,4 @@
+require "fnordmetric"
 module ValidationRage
   class FnordMetricNotifier < BaseNotifier
     attr_accessor :fnord
@@ -6,6 +7,7 @@ module ValidationRage
       self.fnord = FnordMetric::API.new(:redis_url => args[:redis_url])
     end
 
+    # I guess this is toooooo sloooow but anyhow let's play with it
     def call(event_name, payload)
       return unless data_present?(payload)
 
@@ -19,13 +21,14 @@ module ValidationRage
         :_type => "validation_rage_error.#{payload.keys.first.to_s.downcase}",
         :payload => payload.values.first.keys
       })
-      # attribute level validation error event
-      payload.values.first.each do |attribute, error_messages|
-        self.fnord.event({
-          :_type => "validation_rage_error.#{payload.keys.first.to_s.downcase}.#{attribute}",
-          :payload => error_messages
-        })
-      end
+      # two events are enough for now
+      ## attribute level validation error event
+      #payload.values.first.each do |attribute, error_messages|
+      #  self.fnord.event({
+      #    :_type => "validation_rage_error.#{payload.keys.first.to_s.downcase}.#{attribute}",
+      #    :payload => error_messages
+      #  })
+      #end
     end
   end
 end
