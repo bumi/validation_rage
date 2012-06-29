@@ -3,7 +3,7 @@ require "test_helper"
 class ValidationRage::LogNotifierTest < MiniTest::Unit::TestCase
   
 
-  def test_defaul_log_leve
+  def test_defaul_log_level
     assert_equal :warn, ValidationRage::LogNotifier.new({}).log_level
   end
   def test_log_validation_errors_to_logger
