@@ -4,8 +4,8 @@ require File.expand_path('../lib/validation_rage/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Michael Bumann"]
   gem.email         = ["michael@railslove.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{log active model validation errors to get better insights in the usability of your forms}
+  gem.summary       = %q{log active model validation errors to get better insights in the usability of your forms}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)

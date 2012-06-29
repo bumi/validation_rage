@@ -1,5 +1,5 @@
 require "active_support/notifications"
-require 'rails'
+require 'validation_rage/rails' if defined?(Rails)
 module ValidationRage
   autoload :Version, "validation_rage/version"
   autoload :BaseNotifier, "validation_rage/base_notifier"
