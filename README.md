@@ -18,8 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-ValidationRage::LogNotifier.new(:logger => Rails.logger, :log_level => :warn).subscribe!
-ActiveRecord::Base.descendants.each {|m| m.send(:include, ValidationRage::ModelExtension) }
+  
+  config.validation_rage.notifier["Udp"] = {:host => "localhost", :port => 33333}
 
 ## Contributing
 
