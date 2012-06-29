@@ -11,4 +11,11 @@ class ValidationRage::BaseNotifierTest < MiniTest::Unit::TestCase
     ActiveSupport::Notifications.expects(:subscribe).with(/validation_rage:.*/, notifier)
     notifier.subscribe!
   end
+  
+  def test_data_present
+    notifier = ValidationRage::BaseNotifier.new
+    assert notifier.data_present?("klass" => {:error => :message})
+    assert !notifier.data_present?("klass" => {})
+    assert !notifier.data_present?({})
+  end
 end
