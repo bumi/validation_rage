@@ -5,6 +5,7 @@ module ValidationRage
       self.logger     = args[:logger]
       self.log_level  = args[:log_level]  || :warn
     end
+    # TODO: optimize log format
     def call(event_name, payload)
       return if payload.values.first && payload.values.first.empty?
       self.logger.send(self.log_level, "#{event_name} #{payload}")
