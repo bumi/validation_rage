@@ -6,7 +6,7 @@ module ValidationRage
     config.validation_rage.attach_to = [] 
     config.validation_rage.attach_to = [ActiveRecord::Base] if defined?(ActiveRecord::Base) # really?!
 
-    config.validation_rage.notifier = {"Log" => {:log_level => :warn, :logger => nil}} # defalt log everything to the logger
+    config.validation_rage.notifier = {"Log" => {:log_level => :warn, :logger => nil}} # defaults to log everything to the logger
 
     initializer "validation_rage.configure_subscribers" do |app|
       # TODO move this into a testable setup method and refactor! -
