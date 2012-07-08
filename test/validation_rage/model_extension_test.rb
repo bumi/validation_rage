@@ -1,17 +1,6 @@
 require "test_helper"
 
 # TODO: guess this test could be written nicer
-class MockModel
-  def self.after_validation(method)
-    @@after_validation_method = method
-  end
-  def self.after_validation_method
-    @@after_validation_method
-  end
-  def self.name
-    "MockClass"
-  end
-end
 class ValidationRage::ModelExtensionTest < MiniTest::Unit::TestCase
   
   def setup

@@ -9,4 +9,5 @@ module ValidationRage
   autoload :ValidationRageNotifier, "validation_rage/validation_rage_notifier"
   autoload :FnordMetricNotifier, "validation_rage/fnord_metric_notifier"
   autoload :ModelExtension, "validation_rage/model_extension"
+  autoload :ControllerExtension, "validation_rage/controller_extension"
 end
