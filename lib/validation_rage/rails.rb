@@ -34,7 +34,8 @@ module ValidationRage
           controller = "Application" if controller == "*"
           controller_class = "#{controller}Controller".classify.constantize rescue next # just ignore errors for now
           controller_class.send(:include, ValidationRage::ControllerExtension)
-          options = {:only => actions} unless actions.any? {|a| a == "*"}
+          options = {}
+          options.merge({:only => actions}) unless actions.any? {|a| a == "*"}
           controller_class.send(:after_filter, :notify_validation_rage, options)
         end
       end
