@@ -19,14 +19,14 @@ module ValidationRage
 
         # attach validation rage integration extensions to controllers (with after filter) or models (with after_validation filters) 
         controllers = {}
-        app.config.validation_rage.attach_to.each do |klass_or_action|
+        app.config.validation_rage.attach_to.each do |class_or_action|
           # if its a string we collect the controller and actions to later add a after_filter
-          if klass_or_action.is_a?(String)
-            controller, action = klass_or_action.split("#")
+          if class_or_action.is_a?(String)
+            controller, action = class_or_action.split("#")
             controllers[controller] ||= []
             controllers[controller] << action
           else
-            klass_or_action.send(:include, ValidationRage::ModelExtension)
+            class_or_action.send(:include, ValidationRage::ModelExtension)
           end
         end
         # now addingt the after filter to controllers
