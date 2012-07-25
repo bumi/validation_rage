@@ -26,7 +26,7 @@ module ValidationRage
             controllers[controller] ||= []
             controllers[controller] << action
           else
-            klass.send(:include, ValidationRage::ModelExtension)
+            klass_or_action.send(:include, ValidationRage::ModelExtension)
           end
         end
         # now addingt the after filter to controllers
