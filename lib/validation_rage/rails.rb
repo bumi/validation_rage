@@ -36,7 +36,7 @@ module ValidationRage
           controller_class.send(:include, ValidationRage::ControllerExtension)
           options = {}
           options.merge({:only => actions}) unless actions.any? {|a| a == "*"}
-          controller_class.send(:after_filter, :notify_validation_rage, options)
+          controller_class.send(:after_action, :notify_validation_rage, options)
         end
       end
     end
